@@ -22,10 +22,12 @@ const NavLink = ({
   href,
   children,
   className,
+  onClick,
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
@@ -43,6 +45,7 @@ const NavLink = ({
         }
         ${className}
       `}
+      onClick={onClick}
     >
       {children}
     </NextLink>
@@ -132,17 +135,29 @@ export default function Header() {
           <div className="flex-1 flex flex-col items-center justify-center">
             <nav className="flex flex-col items-center space-y-10">
               <NavbarMenuItem className="h-14 flex items-center">
-                <NavLink href="/" className="text-2xl">
+                <NavLink
+                  href="/"
+                  className="text-2xl"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Home
                 </NavLink>
               </NavbarMenuItem>
               <NavbarMenuItem className="h-14 flex items-center">
-                <NavLink href="/blog" className="text-2xl">
+                <NavLink
+                  href="/blog"
+                  className="text-2xl"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Blog
                 </NavLink>
               </NavbarMenuItem>
               <NavbarMenuItem className="h-14 flex items-center">
-                <NavLink href="/projects" className="text-2xl">
+                <NavLink
+                  href="/projects"
+                  className="text-2xl"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Projects
                 </NavLink>
               </NavbarMenuItem>
