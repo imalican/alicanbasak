@@ -42,7 +42,8 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     <Component
       {...getBaseProps({
         className: clsx(
-          "px-px transition-opacity hover:opacity-100 cursor-pointer",
+          "px-px cursor-pointer",
+          "!bg-transparent data-[selected=true]:!bg-transparent",
           className,
           classNames?.base
         ),
@@ -57,18 +58,17 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           class: clsx(
             [
               "w-auto h-auto",
-              "bg-violet-900/20 hover:bg-violet-200 dark:bg-violet-900/2 0 dark:hover:bg-violet-900/50",
               "rounded-lg",
               "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-violet-500 dark:!text-violet-400",
               "p-2",
-              "border border-default-200 dark:border-default-100",
-              "hover:border-violet-500 dark:hover:border-violet-500",
-              "hover:shadow-[0_0_10px_rgba(139,92,246,0.3)] dark:hover:shadow-[0_0_10px_rgba(139,92,246,0.3)]",
-              "hover:scale-105",
-              "transition-all duration-300",
-              //
+              "!bg-violet-100 hover:!bg-violet-200 dark:!bg-violet-900/30 dark:hover:!bg-violet-900/50",
+              "[&:not(:hover)]:!bg-violet-50 dark:[&:not(:hover)]:!bg-violet-900/20",
+              "transition-colors",
+              "font-bold",
+              "data-[selected=true]:!bg-violet-100 data-[selected=true]:hover:!bg-violet-200",
+              "dark:data-[selected=true]:!bg-violet-900/30 dark:data-[selected=true]:hover:!bg-violet-900/50",
+              "group-data-[selected=true]:!bg-violet-100 group-data-[selected=true]:hover:!bg-violet-200",
+              "dark:group-data-[selected=true]:!bg-violet-900/30 dark:group-data-[selected=true]:hover:!bg-violet-900/50",
             ],
             classNames?.wrapper
           ),
@@ -77,12 +77,12 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         {!isSelected || isSSR ? (
           <SunFilledIcon
             size={20}
-            className="transition-transform duration-300 hover:rotate-45"
+            className="text-violet-600 dark:text-violet-300 transition-transform duration-300 hover:rotate-45"
           />
         ) : (
           <MoonFilledIcon
             size={20}
-            className="transition-transform duration-300 hover:-rotate-12"
+            className="text-violet-600 dark:text-violet-300 transition-transform duration-300 hover:-rotate-12"
           />
         )}
       </div>
