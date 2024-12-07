@@ -15,6 +15,12 @@ module.exports = {
         space: ["Space Grotesk", "sans-serif"],
         mono: ["var(--font-mono)"],
       },
+      keyframes: {
+        "border-glow": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "0% 0" },
+        },
+      },
     },
   },
   darkMode: "class",
@@ -33,5 +39,16 @@ module.exports = {
         },
       },
     }),
+    function ({ addUtilities }) {
+      addUtilities({
+        ".mask-border": {
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          "mask-composite": "exclude",
+        },
+        ".mask-composite-source-out": {
+          "mask-composite": "source-out",
+        },
+      });
+    },
   ],
 };
