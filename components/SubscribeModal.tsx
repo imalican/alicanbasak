@@ -14,9 +14,14 @@ import { useState } from "react";
 interface SubscribeModalProps {
   isOpen: boolean;
   onClose: () => void;
+  className?: string;
 }
 
-export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
+export function SubscribeModal({
+  isOpen,
+  onClose,
+  className,
+}: SubscribeModalProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubscribe = async () => {
@@ -31,6 +36,8 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
+      className={className}
+      placement="center"
       backdrop="blur"
       motionProps={{
         variants: {

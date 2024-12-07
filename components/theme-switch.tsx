@@ -77,12 +77,12 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         {!isSelected || isSSR ? (
           <SunFilledIcon
             size={20}
-            className="text-violet-600 dark:text-violet-300 transition-transform duration-300 hover:rotate-45"
+            className="text-violet-600 hover:text-violet-600 dark:text-violet-300 dark:hover:text-violet-300 transition-transform duration-300 hover:rotate-45"
           />
         ) : (
           <MoonFilledIcon
             size={20}
-            className="text-violet-600 dark:text-violet-300 transition-transform duration-300 hover:-rotate-12"
+            className="text-violet-600 hover:text-violet-600 dark:text-violet-300 dark:hover:text-violet-300 transition-transform duration-300 hover:-rotate-12"
           />
         )}
       </div>
