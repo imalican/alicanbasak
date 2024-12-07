@@ -19,26 +19,6 @@ import {
 } from "./icons/TechIcons";
 import { useTheme } from "next-themes";
 
-interface TechIconProps {
-  icon: React.ComponentType;
-  delay?: number;
-}
-
-const TechIcon = ({ icon: Icon, delay = 0 }: TechIconProps) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{
-      duration: 0.3,
-      delay,
-      ease: [0, 0.71, 0.2, 1.01],
-    }}
-    className="w-10 h-10 rounded-xl bg-background/50 backdrop-blur-md border border-divider p-2 shadow-lg"
-  >
-    <Icon />
-  </motion.div>
-);
-
 interface Tech {
   icon: JSX.Element;
 }

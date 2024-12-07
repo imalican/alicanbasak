@@ -90,9 +90,12 @@ export default function Header() {
             }`}
           />
           <NavbarBrand>
-            <p className="text-3xl tracking-tight font-cabinet font-bold">
+            <NextLink
+              href="/"
+              className="text-3xl tracking-tight font-cabinet font-bold"
+            >
               alican.
-            </p>
+            </NextLink>
           </NavbarBrand>
         </NavbarContent>
 
@@ -102,6 +105,9 @@ export default function Header() {
           </NavbarItem>
           <NavbarItem>
             <NavLink href="/blog">Blog</NavLink>
+          </NavbarItem>
+          <NavbarItem>
+            <NavLink href="/works">Works</NavLink>
           </NavbarItem>
           <NavbarItem>
             <NavLink href="/projects">Projects</NavLink>
@@ -150,6 +156,15 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Blog
+                </NavLink>
+              </NavbarMenuItem>
+              <NavbarMenuItem className="h-14 flex items-center">
+                <NavLink
+                  href="/works"
+                  className="text-2xl"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Works
                 </NavLink>
               </NavbarMenuItem>
               <NavbarMenuItem className="h-14 flex items-center">
