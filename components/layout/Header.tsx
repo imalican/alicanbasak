@@ -28,28 +28,20 @@ const NavLink = ({
   const isActive = pathname === href;
 
   return (
-    <NavbarItem isActive={isActive} className="relative">
-      <Link
-        color={isActive ? "violet" : "foreground"}
-        href={href}
-        className={`text-lg relative${isActive ? "font-semibold" : ""}`}
-      >
-        {children}
-        {isActive && (
-          <motion.div
-            layoutId="activeSection"
-            className="absolute inset-0 bg-violet-500/10 dark:bg-violet-500/20 rounded-md -z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              type: "spring",
-              bounce: 0.2,
-              duration: 0.6,
-            }}
-          />
-        )}
-      </Link>
-    </NavbarItem>
+    <Link
+      href={href}
+      className={`
+        relative font-medium text-black dark:text-white no-underline
+        after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left
+        ${
+          isActive
+            ? "after:bg-black dark:after:bg-white after:scale-x-100"
+            : "after:bg-black dark:after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+        }
+      `}
+    >
+      {children}
+    </Link>
   );
 };
 
@@ -76,7 +68,7 @@ export default function Header() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-6" justify="center">
+      <NavbarContent className="hidden sm:flex gap-8" justify="center">
         <NavLink href="/">Home</NavLink>
         <NavLink href="/blog">Blog</NavLink>
         <NavLink href="/about">About</NavLink>

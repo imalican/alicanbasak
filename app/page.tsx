@@ -13,9 +13,13 @@ export default function Home() {
   return (
     <div className="space-y-16">
       {/* Hero Section with cyber background */}
-      <section className="relative w-full bg-black/5 dark:bg-black/50 backdrop-blur-3xl py-16 overflow-hidden rounded-3xl mx-auto mt-4 max-w-[1400px] px-4">
+      <section className="relative w-full bg-black/5 dark:bg-black/50 backdrop-blur-3xl py-8 overflow-hidden rounded-3xl mx-auto mt-4 max-w-[1400px] px-4">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-indigo-500/20" />
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-fuchsia-500/10 to-indigo-500/20" />
+          <div className="absolute inset-0 bg-gradient-radial from-violet-500/10 via-transparent to-transparent translate-x-[50%]" />
+          <div className="absolute inset-0 bg-gradient-radial from-indigo-500/10 via-transparent to-transparent -translate-x-[25%]" />
+        </div>
 
         {/* Grid pattern */}
         <div
@@ -27,8 +31,8 @@ export default function Home() {
         />
 
         {/* Glow effects */}
-        <div className="absolute -left-24 -top-24 w-[500px] h-[500px] bg-primary/10 dark:bg-primary/30 rounded-full blur-[120px]" />
-        <div className="absolute -right-24 -bottom-24 w-[500px] h-[500px] bg-secondary/10 dark:bg-secondary/30 rounded-full blur-[120px]" />
+        <div className="absolute -left-24 -top-24 w-[500px] h-[500px] bg-primary/10 dark:bg-primary/20 rounded-full blur-[120px]" />
+        <div className="absolute -right-24 -bottom-24 w-[500px] h-[500px] bg-secondary/10 dark:bg-secondary/20 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
@@ -76,12 +80,12 @@ export default function Home() {
       </section>
 
       {/* Showcase Section */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`${title({ size: "md" })} font-space mb-16`}>
             Featured Projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
                 key={index}
