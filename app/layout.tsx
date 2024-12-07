@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { fontSans } from "@/config/fonts";
 import dynamic from "next/dynamic";
 import { Providers } from "./providers";
 import clsx from "clsx";
@@ -40,10 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={clsx(
-          "min-h-screen bg-background antialiased font-satoshi",
-          fontSans.variable
-        )}
+        className={clsx("min-h-screen bg-background antialiased font-satoshi")}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
