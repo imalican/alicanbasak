@@ -2,6 +2,7 @@
 
 import { Link } from "@nextui-org/react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { memo } from "react";
 
 const socialLinks = [
   {
@@ -26,7 +27,7 @@ const socialLinks = [
   },
 ];
 
-export default function Footer() {
+const FooterComponent = () => {
   return (
     <footer className="w-full border-t border-default-200 py-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
@@ -51,10 +52,12 @@ export default function Footer() {
 
         <div className="text-center space-y-2">
           <p className="text-default-600 text-md">
-            © {new Date().getFullYear()} Alican Basak. All rights reserved.
+            © 2024 Alican Basak. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default memo(FooterComponent);

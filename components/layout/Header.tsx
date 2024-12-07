@@ -1,22 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
 import {
-  Navbar,
-  NavbarBrand,
+  Navbar as NextUINavbar,
   NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
   NavbarMenu,
-  Link,
-  Button,
-} from "@nextui-org/react";
-import { Logo } from "@/components/icons";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+  NavbarMenuToggle,
+  NavbarBrand,
+  NavbarItem,
+  NavbarMenuItem,
+} from "@nextui-org/navbar";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
+import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { ThemeSwitch } from "@/components/theme-switch";
 import { SubscribeModal } from "@/components/SubscribeModal";
+import { useState } from "react";
 
 const NavLink = ({
   href,
@@ -29,7 +29,7 @@ const NavLink = ({
   const isActive = pathname === href;
 
   return (
-    <Link
+    <NextLink
       href={href}
       className={`
         relative font-medium text-black dark:text-white no-underline
@@ -42,7 +42,7 @@ const NavLink = ({
       `}
     >
       {children}
-    </Link>
+    </NextLink>
   );
 };
 
@@ -52,7 +52,7 @@ export default function Header() {
 
   return (
     <>
-      <Navbar
+      <NextUINavbar
         maxWidth="xl"
         className="bg-background/70 backdrop-blur-md"
         position="sticky"
@@ -72,14 +72,20 @@ export default function Header() {
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-8" justify="center">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
+          <NavbarItem>
+            <NavLink href="/">Home</NavLink>
+          </NavbarItem>
+          <NavbarItem>
+            <NavLink href="/blog">Blog</NavLink>
+          </NavbarItem>
+          <NavbarItem>
+            <NavLink href="/projects">Projects</NavLink>
+          </NavbarItem>
         </NavbarContent>
 
         <NavbarContent justify="end" className="gap-4">
           <NavbarItem>
-            <ThemeSwitcher />
+            <ThemeSwitch />
           </NavbarItem>
           <NavbarItem className="hidden sm:flex">
             <Button
@@ -93,49 +99,51 @@ export default function Header() {
           </NavbarItem>
         </NavbarContent>
 
-        <AnimatePresence>
-          {isMenuOpen && (
-            <NavbarMenu className="top-[var(--navbar-height)] bg-background/70 backdrop-blur-md flex flex-col">
-              <div className="flex-1 flex flex-col items-center justify-center">
-                <nav className="flex flex-col items-center space-y-6">
-                  <NavLink href="/">Home</NavLink>
-                  <NavLink href="/blog">Blog</NavLink>
-                  <NavLink href="/projects">Projects</NavLink>
-                </nav>
-              </div>
-              <div className="flex justify-center gap-8 py-8 border-t border-divider/50 mt-auto">
-                <Link
-                  href="https://github.com/yourusername"
-                  className="text-foreground/60 hover:text-foreground transition-colors"
-                  target="_blank"
-                >
-                  <FaGithub size={24} />
-                </Link>
-                <Link
-                  href="https://linkedin.com/in/yourusername"
-                  className="text-foreground/60 hover:text-foreground transition-colors"
-                  target="_blank"
-                >
-                  <FaLinkedin size={24} />
-                </Link>
-                <Link
-                  href="https://instagram.com/yourusername"
-                  className="text-foreground/60 hover:text-foreground transition-colors"
-                  target="_blank"
-                >
-                  <FaInstagram size={24} />
-                </Link>
-                <Link
-                  href="mailto:your@email.com"
-                  className="text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  <FaEnvelope size={24} />
-                </Link>
-              </div>
-            </NavbarMenu>
-          )}
-        </AnimatePresence>
-      </Navbar>
+        <NavbarMenu className="top-[var(--navbar-height)] bg-background/70 backdrop-blur-md flex flex-col">
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <nav className="flex flex-col items-center space-y-6">
+              <NavbarMenuItem>
+                <NavLink href="/">Home</NavLink>
+              </NavbarMenuItem>
+              <NavbarMenuItem>
+                <NavLink href="/blog">Blog</NavLink>
+              </NavbarMenuItem>
+              <NavbarMenuItem>
+                <NavLink href="/projects">Projects</NavLink>
+              </NavbarMenuItem>
+            </nav>
+          </div>
+          <div className="flex justify-center gap-8 py-8 border-t border-divider/50 mt-auto">
+            <Link
+              href="https://github.com/yourusername"
+              className="text-foreground/60 hover:text-foreground transition-colors"
+              target="_blank"
+            >
+              <FaGithub size={24} />
+            </Link>
+            <Link
+              href="https://linkedin.com/in/yourusername"
+              className="text-foreground/60 hover:text-foreground transition-colors"
+              target="_blank"
+            >
+              <FaLinkedin size={24} />
+            </Link>
+            <Link
+              href="https://instagram.com/yourusername"
+              className="text-foreground/60 hover:text-foreground transition-colors"
+              target="_blank"
+            >
+              <FaInstagram size={24} />
+            </Link>
+            <Link
+              href="mailto:your@email.com"
+              className="text-foreground/60 hover:text-foreground transition-colors"
+            >
+              <FaEnvelope size={24} />
+            </Link>
+          </div>
+        </NavbarMenu>
+      </NextUINavbar>
 
       <SubscribeModal
         isOpen={isSubscribeOpen}

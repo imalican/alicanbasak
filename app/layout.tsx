@@ -1,11 +1,18 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
-import clsx from "clsx";
-import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import dynamic from "next/dynamic";
+import { Providers } from "./providers";
+import clsx from "clsx";
+
+// Dinamik import ile header ve footer'ı lazy load yapalım
+const Header = dynamic(() => import("@/components/layout/Header"), {
+  ssr: true,
+});
+
+const Footer = dynamic(() => import("@/components/layout/Footer"), {
+  ssr: true,
+});
 
 export const metadata: Metadata = {
   title: "Next.js + NextUI",

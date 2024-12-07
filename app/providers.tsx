@@ -15,8 +15,8 @@ export function Providers({
 
   return (
     <NextUIProvider navigate={router.push}>
-      <NextThemesProvider {...themeProps}>
-        <main className="font-satoshi">{children}</main>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        {children}
       </NextThemesProvider>
     </NextUIProvider>
   );

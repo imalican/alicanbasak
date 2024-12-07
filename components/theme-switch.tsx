@@ -42,9 +42,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     <Component
       {...getBaseProps({
         className: clsx(
-          "px-px transition-opacity hover:opacity-80 cursor-pointer",
+          "px-px transition-opacity hover:opacity-100 cursor-pointer",
           className,
-          classNames?.base,
+          classNames?.base
         ),
       })}
     >
@@ -57,23 +57,33 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           class: clsx(
             [
               "w-auto h-auto",
-              "bg-transparent",
+              "bg-violet-900/20 hover:bg-violet-200 dark:bg-violet-900/2 0 dark:hover:bg-violet-900/50",
               "rounded-lg",
               "flex items-center justify-center",
               "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
+              "!text-violet-500 dark:!text-violet-400",
+              "p-2",
+              "border border-default-200 dark:border-default-100",
+              "hover:border-violet-500 dark:hover:border-violet-500",
+              "hover:shadow-[0_0_10px_rgba(139,92,246,0.3)] dark:hover:shadow-[0_0_10px_rgba(139,92,246,0.3)]",
+              "hover:scale-105",
+              "transition-all duration-300",
+              //
             ],
-            classNames?.wrapper,
+            classNames?.wrapper
           ),
         })}
       >
         {!isSelected || isSSR ? (
-          <SunFilledIcon size={22} />
+          <SunFilledIcon
+            size={20}
+            className="transition-transform duration-300 hover:rotate-45"
+          />
         ) : (
-          <MoonFilledIcon size={22} />
+          <MoonFilledIcon
+            size={20}
+            className="transition-transform duration-300 hover:-rotate-12"
+          />
         )}
       </div>
     </Component>
