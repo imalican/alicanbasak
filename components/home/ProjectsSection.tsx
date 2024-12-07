@@ -76,7 +76,7 @@ export const ProjectsSection = () => {
             <div key={index} className="relative group">
               <div
                 className="absolute inset-0 rounded-large bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-0 group-hover:opacity-100 transition duration-500
-                  group-hover:[animation:border-glow_8s_ease-out_forwards] bg-[length:300%_100%] bg-[position:-300%_0]
+                  group-hover:[animation:border-glow_8s_ease-out_forwards] bg-[length:200%_100%] bg-[position:-200%_0] 
                   border-2 border-transparent"
               />
 
