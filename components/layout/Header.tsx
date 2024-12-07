@@ -71,7 +71,7 @@ export default function Header() {
       <NavbarContent className="hidden sm:flex gap-8" justify="center">
         <NavLink href="/">Home</NavLink>
         <NavLink href="/blog">Blog</NavLink>
-        <NavLink href="/about">About</NavLink>
+        <NavLink href="/projects">Projects</NavLink>
       </NavbarContent>
 
       <NavbarContent justify="end" className="gap-4">
@@ -96,15 +96,9 @@ export default function Header() {
           <NavbarMenu className="top-[var(--navbar-height)] bg-background/70 backdrop-blur-md flex flex-col">
             <div className="flex-1 flex flex-col items-center justify-center">
               <nav className="flex flex-col items-center space-y-6">
-                <NavLink href="/" isMobile>
-                  Home
-                </NavLink>
-                <NavLink href="/blog" isMobile>
-                  Blog
-                </NavLink>
-                <NavLink href="/about" isMobile>
-                  About
-                </NavLink>
+                <NavLink href="/">Home</NavLink>
+                <NavLink href="/blog">Blog</NavLink>
+                <NavLink href="/projects">Projects</NavLink>
               </nav>
             </div>
             <div className="flex justify-center gap-8 py-8 border-t border-divider/50 mt-auto">
