@@ -1,17 +1,58 @@
 "use client";
 
-import React from "react";
 import { Link } from "@nextui-org/react";
-import { Logo } from "@/components/icons";
-import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+
+const socialLinks = [
+  {
+    href: "https://github.com/yourusername",
+    icon: FaGithub,
+    label: "GitHub",
+  },
+  {
+    href: "https://linkedin.com/in/yourusername",
+    icon: FaLinkedin,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://instagram.com/yourusername",
+    icon: FaInstagram,
+    label: "Instagram",
+  },
+  {
+    href: "mailto:your@email.com",
+    icon: FaEnvelope,
+    label: "Email",
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-background/70 backdrop-blur-md py-12">
-      <div className="container mx-auto px-4">
-        {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-divider text-center text-default-600">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+    <footer className="w-full border-t border-default-200 py-8">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
+        <div className="flex gap-6">
+          {socialLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="group relative p-2 rounded-lg border border-default-200 dark:border-default-100
+                hover:border-violet-500 dark:hover:border-violet-500
+                transition-colors"
+              target="_blank"
+              aria-label={link.label}
+            >
+              <link.icon
+                size={20}
+                className="text-default-500 group-hover:text-violet-500 transition-colors"
+              />
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center space-y-2">
+          <p className="text-default-600 text-md">
+            © {new Date().getFullYear()} Alican Basak. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

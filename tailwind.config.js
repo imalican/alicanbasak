@@ -20,6 +20,18 @@ module.exports = {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "0% 0" },
         },
+        pulse: {
+          "0%, 100%": { opacity: "0" },
+          "50%": { opacity: "1" },
+        },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "border-pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
       },
     },
   },
