@@ -14,8 +14,11 @@ const Footer = dynamic(() => import("@/components/layout/Footer"), {
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + NextUI",
-  description: "Beautiful, fast and modern React UI library.",
+  title: {
+    default: "Alican Basak",
+    template: "%s | Alican Basak",
+  },
+  description: "Full-stack developer specializing in modern web technologies.",
 };
 
 export const viewport: Viewport = {

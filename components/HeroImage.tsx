@@ -156,17 +156,9 @@ export const HeroImage = () => {
                 <motion.div
                   key={`tech-mobile-${i}`}
                   className={`flex-shrink-0 p-3 rounded-lg ${
-                    mounted
-                      ? isDark
-                        ? "bg-gray-800/20"
-                        : "bg-white/10"
-                      : "bg-white/10"
+                    isDark ? "bg-gray-800/20" : "bg-white/10"
                   } backdrop-blur-md border ${
-                    mounted
-                      ? isDark
-                        ? "border-gray-700/30"
-                        : "border-gray-200/20"
-                      : "border-gray-200/20"
+                    isDark ? "border-gray-700/30" : "border-gray-200/20"
                   } aspect-square ${size} ${offset}`}
                 >
                   <div className="flex items-center justify-center h-full">

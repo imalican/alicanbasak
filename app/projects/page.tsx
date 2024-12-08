@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 export default function ProjectsPage() {
   return (
     <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -6,3 +8,8 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Personal and open source projects I have worked on.",
+};
