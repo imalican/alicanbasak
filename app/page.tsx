@@ -13,7 +13,6 @@ export default function Home() {
   );
 }
 
-// Move these to a separate types file (types/index.ts)
 export const featuredContent = [
   /*...*/
 ];

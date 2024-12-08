@@ -26,7 +26,7 @@ export function SubscribeModal({
 
   const handleSubscribe = async () => {
     setIsLoading(true);
-    // Simüle edilmiş API çağrısı
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsLoading(false);
     onClose();

@@ -49,7 +49,7 @@ export const HeroSection = () => {
               <div className="flex gap-4">
                 <Button
                   as={Link}
-                  href="https://github.com/yourusername"
+                  href="https://github.com/imalican"
                   className="font-semibold bg-gradient-to-r from-violet-500 to-indigo-500 text-white font-satoshi"
                   size="lg"
                 >

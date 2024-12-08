@@ -37,15 +37,6 @@ const techStacks = [
   { icon: <ExpoIcon /> },
 ];
 
-// Tech icon için ortak className oluşturalım
-const getTechIconClass = (isDark: boolean) => `
-  absolute p-3 rounded-lg 
-  ${isDark ? "bg-gray-800/20 border-gray-700/30" : "bg-white/10 border-gray-200/20"}
-  backdrop-blur-md border
-  aspect-square w-[48px]
-`;
-
-// Sabit zIndex'ler
 const zIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 export const HeroImage = () => {
@@ -58,7 +49,6 @@ export const HeroImage = () => {
     setIsDark(theme === "dark");
   }, [theme]);
 
-  // İlk render'da server-side className'i kullan
   const getTechIconClass = () => `
     absolute p-3 rounded-lg 
     ${mounted ? (isDark ? "bg-gray-800/20 border-gray-700/30" : "bg-white/10 border-gray-200/20") : "bg-white/10 border-gray-200/20"}
@@ -66,7 +56,6 @@ export const HeroImage = () => {
     aspect-square w-[48px]
   `;
 
-  // Masaüstü görünümü
   const DesktopView = () => (
     <div className="relative w-full h-[500px]">
       <div className="absolute inset-0">
@@ -83,7 +72,7 @@ export const HeroImage = () => {
               style={{
                 ...desktopPositions[i],
                 transform: `rotate(${Math.random() * 4 - 2}deg)`,
-                zIndex: zIndexes[i], // Sabit zIndex kullanıyoruz
+                zIndex: zIndexes[i],
               }}
               initial={{ y: 50 }}
               animate={{
@@ -115,17 +104,16 @@ export const HeroImage = () => {
     </div>
   );
 
-  // Mobil görünümü - Farklı boyutlarda ikonlar ve yavaş sonsuz loop
   const MobileView = () => {
     const getAsymmetricStyle = (index: number) => {
       const patterns = [
-        { size: "w-[48px]", offset: "translate-y-2" }, // Normal
-        { size: "w-[48px]", offset: "-translate-y-4" }, // Yukarıda
-        { size: "w-[48px]", offset: "translate-y-0" }, // Aşağıda
-        { size: "w-[48px]", offset: "translate-y-3" }, // Biraz aşağıda
-        { size: "w-[48px]", offset: "-translate-y-2" }, // Biraz yukarıda
-        { size: "w-[48px]", offset: "-translate-y-1" }, // Biraz yukarıda
-        { size: "w-[48px]", offset: "-translate-y-3" }, // Biraz yukarıda
+        { size: "w-[48px]", offset: "translate-y-2" },
+        { size: "w-[48px]", offset: "-translate-y-4" },
+        { size: "w-[48px]", offset: "translate-y-0" },
+        { size: "w-[48px]", offset: "translate-y-3" },
+        { size: "w-[48px]", offset: "-translate-y-2" },
+        { size: "w-[48px]", offset: "-translate-y-1" },
+        { size: "w-[48px]", offset: "-translate-y-3" },
       ];
       return patterns[index % patterns.length];
     };

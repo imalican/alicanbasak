@@ -1,4 +1,3 @@
-// Projects header komponenti
 import { title } from "@/components/primitives";
 import { ViewAllButton } from "./ViewAllButton";
 

@@ -36,7 +36,7 @@ const NavLink = ({
     <NextLink
       href={href}
       className={`
-        relative font-medium text-black dark:text-white no-underline
+        relative font-medium text-lg text-black dark:text-white no-underline
         after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left
         ${
           isActive
@@ -180,16 +180,13 @@ export default function Header() {
           </div>
           <div className="flex flex-col gap-6 items-center py-8 border-t border-divider/50 mt-auto">
             <div className="flex justify-center gap-4">
+              <SocialIcon href="https://github.com/imalican" icon={FaGithub} />
               <SocialIcon
-                href="https://github.com/yourusername"
-                icon={FaGithub}
-              />
-              <SocialIcon
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/alicanbasak/"
                 icon={FaLinkedin}
               />
               <SocialIcon
-                href="https://instagram.com/yourusername"
+                href="https://instagram.com/alicanbasak"
                 icon={FaInstagram}
               />
             </div>

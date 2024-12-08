@@ -25,13 +25,13 @@ export default function Footer() {
     <footer className="w-full border-t border-default-200 py-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
         <div className="flex gap-4">
-          <SocialIcon href="https://github.com/yourusername" icon={FaGithub} />
+          <SocialIcon href="https://github.com/imalican" icon={FaGithub} />
           <SocialIcon
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/alicanbasak/"
             icon={FaLinkedin}
           />
           <SocialIcon
-            href="https://instagram.com/yourusername"
+            href="https://instagram.com/alicanbasak"
             icon={FaInstagram}
           />
         </div>

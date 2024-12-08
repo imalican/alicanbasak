@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { Providers } from "./providers";
 import clsx from "clsx";
 
-// Dinamik import ile header ve footer'ı lazy load yapalım
 const Header = dynamic(() => import("@/components/layout/Header"), {
   ssr: true,
 });
