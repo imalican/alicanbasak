@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   TypeScriptIcon,
@@ -13,7 +13,6 @@ import {
   ReduxIcon,
   GraphQLIcon,
   AWSIcon,
-  ReactNativeIcon,
   PythonIcon,
   ExpoIcon,
 } from "./icons/TechIcons";
@@ -38,10 +37,34 @@ const techStacks = [
   { icon: <ExpoIcon /> },
 ];
 
+// Tech icon için ortak className oluşturalım
+const getTechIconClass = (isDark: boolean) => `
+  absolute p-3 rounded-lg 
+  ${isDark ? "bg-gray-800/20 border-gray-700/30" : "bg-white/10 border-gray-200/20"}
+  backdrop-blur-md border
+  aspect-square w-[48px]
+`;
+
+// Sabit zIndex'ler
+const zIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
 export const HeroImage = () => {
   const { theme } = useTheme();
-  const isDark = theme === "dark";
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setIsDark(theme === "dark");
+  }, [theme]);
+
+  // İlk render'da server-side className'i kullan
+  const getTechIconClass = () => `
+    absolute p-3 rounded-lg 
+    ${mounted ? (isDark ? "bg-gray-800/20 border-gray-700/30" : "bg-white/10 border-gray-200/20") : "bg-white/10 border-gray-200/20"}
+    backdrop-blur-md border
+    aspect-square w-[48px]
+  `;
 
   // Masaüstü görünümü
   const DesktopView = () => (
@@ -56,15 +79,11 @@ export const HeroImage = () => {
           {techStacks.map((tech: Tech, i: number) => (
             <motion.div
               key={`tech-${i}`}
-              className={`absolute p-3 rounded-lg ${
-                isDark ? "bg-gray-800/20" : "bg-white/10"
-              } backdrop-blur-md border ${
-                isDark ? "border-gray-700/30" : "border-gray-200/20"
-              } aspect-square w-[48px]`}
+              className={getTechIconClass()}
               style={{
                 ...desktopPositions[i],
                 transform: `rotate(${Math.random() * 4 - 2}deg)`,
-                zIndex: Math.floor(Math.random() * 10),
+                zIndex: zIndexes[i], // Sabit zIndex kullanıyoruz
               }}
               initial={{ y: 50 }}
               animate={{
@@ -100,11 +119,13 @@ export const HeroImage = () => {
   const MobileView = () => {
     const getAsymmetricStyle = (index: number) => {
       const patterns = [
-        { size: "w-[48px]", offset: "translate-y-0" }, // Normal
+        { size: "w-[48px]", offset: "translate-y-2" }, // Normal
         { size: "w-[48px]", offset: "-translate-y-4" }, // Yukarıda
-        { size: "w-[48px]", offset: "translate-y-6" }, // Aşağıda
-        { size: "w-[48px]", offset: "translate-y-2" }, // Biraz aşağıda
+        { size: "w-[48px]", offset: "translate-y-0" }, // Aşağıda
+        { size: "w-[48px]", offset: "translate-y-3" }, // Biraz aşağıda
         { size: "w-[48px]", offset: "-translate-y-2" }, // Biraz yukarıda
+        { size: "w-[48px]", offset: "-translate-y-1" }, // Biraz yukarıda
+        { size: "w-[48px]", offset: "-translate-y-3" }, // Biraz yukarıda
       ];
       return patterns[index % patterns.length];
     };
@@ -135,9 +156,17 @@ export const HeroImage = () => {
                 <motion.div
                   key={`tech-mobile-${i}`}
                   className={`flex-shrink-0 p-3 rounded-lg ${
-                    isDark ? "bg-gray-800/20" : "bg-white/10"
+                    mounted
+                      ? isDark
+                        ? "bg-gray-800/20"
+                        : "bg-white/10"
+                      : "bg-white/10"
                   } backdrop-blur-md border ${
-                    isDark ? "border-gray-700/30" : "border-gray-200/20"
+                    mounted
+                      ? isDark
+                        ? "border-gray-700/30"
+                        : "border-gray-200/20"
+                      : "border-gray-200/20"
                   } aspect-square ${size} ${offset}`}
                 >
                   <div className="flex items-center justify-center h-full">
