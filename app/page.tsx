@@ -12,10 +12,3 @@ export default function Home() {
     </div>
   );
 }
-
-export const featuredContent = [
-  /*...*/
-];
-export const testimonials = [
-  /*...*/
-];

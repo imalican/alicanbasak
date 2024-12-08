@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@nextui-org/react";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const SocialIcon = ({ href, icon: Icon }: { href: string; icon: any }) => (
   <Link

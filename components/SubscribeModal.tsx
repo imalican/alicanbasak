@@ -26,10 +26,14 @@ export function SubscribeModal({
 
   const handleSubscribe = async () => {
     setIsLoading(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
-    onClose();
+    try {
+      // Gerçek API çağrısı buraya gelecek
+      onClose();
+    } catch (error) {
+      console.error("Subscription failed:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
