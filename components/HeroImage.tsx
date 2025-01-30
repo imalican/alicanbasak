@@ -109,13 +109,13 @@ export const HeroImage = () => {
   const MobileView = () => {
     const getAsymmetricStyle = (index: number) => {
       const patterns = [
-        { size: "w-[48px]", offset: "translate-y-2" },
-        { size: "w-[48px]", offset: "-translate-y-4" },
-        { size: "w-[48px]", offset: "translate-y-0" },
-        { size: "w-[48px]", offset: "translate-y-3" },
-        { size: "w-[48px]", offset: "-translate-y-2" },
-        { size: "w-[48px]", offset: "-translate-y-1" },
-        { size: "w-[48px]", offset: "-translate-y-3" },
+        { size: "w-12 h-12", offset: "translate-y-2" },
+        { size: "w-12 h-12", offset: "-translate-y-4" },
+        { size: "w-12 h-12", offset: "translate-y-0" },
+        { size: "w-12 h-12", offset: "translate-y-3" },
+        { size: "w-12 h-12", offset: "-translate-y-2" },
+        { size: "w-12 h-12", offset: "-translate-y-1" },
+        { size: "w-12 h-12", offset: "-translate-y-3" },
       ];
 
       return patterns[index % patterns.length];
@@ -154,11 +154,12 @@ export const HeroImage = () => {
                     isDark ? "bg-gray-800/20" : "bg-white/10"
                   } backdrop-blur-md border ${
                     isDark ? "border-gray-700/30" : "border-gray-200/20"
-                  } aspect-square ${size} ${offset} will-change-transform`}
+                  } ${size} ${offset} will-change-transform`}
                   style={{
                     WebkitBackfaceVisibility: "hidden",
                     WebkitPerspective: 1000,
                     WebkitTransform: "translate3d(0,0,0)",
+                    aspectRatio: "1 / 1",
                   }}
                 >
                   <div className="flex items-center justify-center h-full">
