@@ -6,18 +6,13 @@ export async function POST(req: Request) {
   try {
     const API_SECRET = process.env.CONVERTKIT_API_SECRET;
 
-    // Formları listelemek için API Secret kullanıyoruz
-    const formsResponse = await fetch(
-      `https://api.convertkit.com/v3/forms?api_secret=${API_SECRET}`
-    );
+    if (!API_SECRET) {
+      throw new Error("CONVERTKIT_API_SECRET is not defined");
+    }
 
-    const formsData = await formsResponse.json();
-
-    console.log("Available Forms:", formsData);
-
-    // Subscribe işlemi için form ID'yi kullanıyoruz (forms listesinden gelen ID)
+    // Form ID'yi doğrudan kullanıyoruz
     const response = await fetch(
-      "https://api.convertkit.com/v3/forms/7624941/subscribe", // Gerçek form ID'si
+      "https://api.convertkit.com/v3/forms/7624941/subscribe",
       {
         method: "POST",
         headers: {
@@ -31,8 +26,6 @@ export async function POST(req: Request) {
     );
 
     const responseData = await response.json();
-
-    console.log("ConvertKit API Response:", responseData);
 
     if (!response.ok) {
       console.error("ConvertKit Error Response:", responseData);
@@ -50,8 +43,6 @@ export async function POST(req: Request) {
 
     const errorMessage =
       error instanceof Error ? error.message : "Unknown error";
-
-    console.error("Detailed error:", errorMessage);
 
     return NextResponse.json(
       {
