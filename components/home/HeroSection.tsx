@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
-import { title } from "@/components/primitives";
+import { Link } from "@nextui-org/link";
+
 import { HeroImage } from "@/components/HeroImage";
+import { title } from "@/components/primitives";
 
 export const HeroSection = () => {
   return (
@@ -49,18 +49,18 @@ export const HeroSection = () => {
               <div className="flex gap-4">
                 <Button
                   as={Link}
-                  href="https://github.com/imalican"
                   className="font-semibold bg-gradient-to-r from-violet-500 to-indigo-500 text-white font-satoshi"
+                  href="/works"
                   size="lg"
                 >
-                  View Projects
+                  View My Works
                 </Button>
                 <Button
                   as={Link}
-                  href="/blog"
-                  variant="bordered"
-                  size="lg"
                   className="font-semibold font-satoshi"
+                  href="/blog"
+                  size="lg"
+                  variant="bordered"
                 >
                   Read Blog
                 </Button>
