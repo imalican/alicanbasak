@@ -9,18 +9,11 @@ import { projects } from "@/data/projects";
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<string>("all");
 
-  // Benzersiz kategorileri al
-  const categories = [
-    "all",
-    ...new Set(projects.map((project) => project.category)),
-  ];
+  // Sadece "all" kategorisini kullan
+  const categories = ["all"];
 
-  // Projeleri filtrele
-  const filteredProjects = projects.filter((project) => {
-    if (filter === "all") return true;
-
-    return project.category === filter;
-  });
+  // Tüm projeleri göster
+  const filteredProjects = projects;
 
   return (
     <div className="max-w-[1440px] mx-auto">
@@ -35,28 +28,20 @@ export default function ProjectsPage() {
               </span>
             </h1>
             <p className="text-lg text-default-600 max-w-lg">
-              A collection of projects I've worked on, including open-source
-              contributions and personal experiments.
+              A collection of projects I&apos;ve worked on, including
+              open-source contributions and personal experiments.
             </p>
           </div>
 
-          {/* Filtreler */}
+          {/* Filtreler - sadece All butonu */}
           <div className="flex flex-wrap items-center gap-3">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                className={`capitalize ${
-                  filter === category
-                    ? "bg-violet-500/10 text-violet-500"
-                    : "hover:bg-violet-500/5"
-                }`}
-                size="sm"
-                variant="light"
-                onClick={() => setFilter(category)}
-              >
-                {category === "all" ? "All Projects" : category}
-              </Button>
-            ))}
+            <Button
+              className="bg-violet-500/10 text-violet-500"
+              size="sm"
+              variant="light"
+            >
+              All Projects
+            </Button>
           </div>
 
           {/* Dekoratif çizgi */}

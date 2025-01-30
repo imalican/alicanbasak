@@ -17,14 +17,46 @@ export function SubscribeModal({
   className,
 }: SubscribeModalProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleSubscribe = async () => {
+    // Basic validation
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Please enter a valid email address");
+
+      return;
+    }
+
     setIsLoading(true);
+    setError("");
+
     try {
-      // Gerçek API çağrısı buraya gelecek
-      onClose();
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Subscription failed");
+      }
+
+      setSuccess(true);
+      setTimeout(() => {
+        onClose();
+        setSuccess(false);
+        setEmail("");
+      }, 2000);
     } catch (error) {
-      console.error("Subscription failed:", error);
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Failed to subscribe. Please try again later."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -102,13 +134,17 @@ export function SubscribeModal({
                       "group-data-[focus=true]:bg-default-100/50 dark:group-data-[focus=true]:bg-default-50/20",
                     ].join(" "),
                   }}
+                  errorMessage={error}
+                  isInvalid={!!error}
                   label="Email"
                   placeholder="you@example.com"
                   startContent={
                     <FaEnvelope className="text-default-400 flex-shrink-0" />
                   }
                   type="email"
+                  value={email}
                   variant="bordered"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <div className="space-y-2">
                   <Button
@@ -129,6 +165,11 @@ export function SubscribeModal({
                     </p>
                   </div>
                 </div>
+                {success && (
+                  <p className="text-success text-sm text-center">
+                    Successfully subscribed!
+                  </p>
+                )}
               </div>
             </div>
           </motion.div>
