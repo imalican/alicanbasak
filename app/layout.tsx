@@ -20,10 +20,6 @@ export const metadata: Metadata = {
   },
   description: "Full-stack developer specializing in modern web technologies.",
   metadataBase: new URL("https://alicanbasak.com"),
-  icons: {
-    icon: "/favicon.ico",
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-  },
 };
 
 export const viewport: Viewport = {
@@ -41,24 +37,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <head>
-        <link href="/favicon.ico" rel="icon" sizes="any" />
-        <link
-          href="/favicon-16x16.png"
-          rel="icon"
-          sizes="16x16"
-          type="image/png"
-        />
-        <link
-          href="/favicon-32x32.png"
-          rel="icon"
-          sizes="32x32"
-          type="image/png"
-        />
-        <link
-          href="/apple-touch-icon.png"
-          rel="apple-touch-icon"
-          sizes="180x180"
-        />
+        <link href="/favicon.ico" rel="icon" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=space-grotesk@400,500,700&display=swap"
           rel="stylesheet"

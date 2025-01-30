@@ -30,9 +30,7 @@ export default function WorkCard({ work }: WorkCardProps) {
             {/* Sol taraf - Yıl ve kategori */}
             <div className="flex md:flex-col items-center md:items-start gap-4 md:w-48 md:border-r border-violet-500/20 md:pr-6">
               <span className="text-2xl font-bold text-violet-500 dark:text-violet-400">
-                {work.startYear === work.year
-                  ? work.year
-                  : `${work.startYear} - ${work.year}`}
+                {work.year}
               </span>
               <span className="text-sm text-default-500">{work.category}</span>
             </div>

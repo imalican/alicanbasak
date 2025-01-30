@@ -1,23 +1,33 @@
-export const works = [
+export interface Work {
+  id: string;
+  title: string;
+  description: string;
+  year: string;
+  startYear: string;
+  link?: string;
+  company: string;
+  category: string;
+  role: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+export const works: Work[] = [
   {
-    id: 1,
+    id: "1",
     title: "MegaMerchant - Omega Platform",
     description:
       "Led the frontend development and currently contributing to backend services of a comprehensive e-export infrastructure platform. Built the entire React frontend from scratch, implementing complex UI components and state management. Currently expanding the platform with microservices architecture using Node.js and Go.",
-    role: "Full Stack Developer",
     year: "2025",
-    startYear: "2022",
-    category: "E-Commerce Platform",
+    startYear: "2025",
     link: "https://omega.themegamerchant.com",
+    company: "MegaMerchant",
+    category: "Full Stack Development",
+    role: "Lead Frontend Developer",
     achievements: [
-      "Built the entire frontend application from ground up using React",
-      "Developed reusable component library and implemented complex UI patterns",
-      "Managed global state efficiently using Context API",
-      "Integrated Material-UI (MUI) for consistent and user-friendly interfaces",
-      "Implemented automated workflows for repetitive tasks",
-      "Built custom solutions for inventory and pricing management",
-      "Integrated digital payment systems and monitoring tools",
-      "Currently developing microservices with Node.js and Go",
+      "Built the entire React frontend from scratch",
+      "Implemented complex UI components",
+      "Expanded platform with microservices",
     ],
     technologies: [
       "React",
@@ -33,23 +43,20 @@ export const works = [
     ],
   },
   {
-    id: 2,
+    id: "2",
     title: "Odak PCB - Quality Control Panel",
     description:
       "Currently developing a sophisticated quality control testing platform managing 33 different test processes for PCB cards. The system handles complex testing workflows, tracks defects with specific error codes, and integrates with enterprise software for comprehensive quality management. Real-time monitoring and reporting capabilities help maintain high manufacturing standards.",
-    role: "Full Stack Developer",
     year: "2025",
-    startYear: "2024",
-    category: "Manufacturing Software",
+    startYear: "2025",
     link: "https://odakpcb.com",
+    company: "Odak PCB",
+    category: "Quality Control",
+    role: "Developer",
     achievements: [
-      "Implemented 33 distinct PCB testing processes with real-time monitoring",
-      "Developed comprehensive defect tracking with specific error codes",
-      "Created integration with Logo Software for ERP functionality",
-      "Built real-time reporting and analytics dashboard",
-      "Implemented quality metrics and performance tracking",
-      "Designed automated test result logging system",
-      "Created user-friendly interface for test operators",
+      "Developed a sophisticated quality control testing platform",
+      "Managed 33 different test processes for PCB cards",
+      "Integrated with enterprise software for comprehensive quality management",
     ],
     technologies: [
       "MongoDB",
@@ -65,24 +72,20 @@ export const works = [
     ],
   },
   {
-    id: 3,
+    id: "3",
     title: "Odak PCB - RFQ Platform",
     description:
       "Currently developing a comprehensive RFQ (Request for Quotation) platform that streamlines the quotation process between technical teams, customer representatives, and factories. The system features a sophisticated workflow engine, role-based access control, and automated notifications to facilitate efficient communication and decision-making.",
-    role: "Full Stack Developer",
     year: "2025",
-    startYear: "2024",
-    category: "Enterprise Software",
+    startYear: "2025",
     link: "https://odakpcb.com",
+    company: "Odak PCB",
+    category: "RFQ Platform",
+    role: "Developer",
     achievements: [
-      "Designed and implemented multi-role workflow system",
-      "Built automated notification system for process updates",
-      "Created Excel integration for bulk RFQ uploads",
-      "Implemented role-based access control",
-      "Developed document management system",
-      "Created dashboard for RFQ tracking and management",
-      "Implemented email notification system",
-      "Built reporting and analytics features",
+      "Developed a comprehensive RFQ platform",
+      "Streamlined the quotation process",
+      "Facilitated efficient communication and decision-making",
     ],
     technologies: [
       "MERN Stack",
@@ -97,22 +100,20 @@ export const works = [
     ],
   },
   {
-    id: 4,
+    id: "4",
     title: "51'Nsights - Digital Marketing Analytics",
     description:
       "Developed a comprehensive React-based analytics platform for 51 Digital that enables real-time tracking of digital marketing campaigns. The platform provides detailed insights into impressions, reach, and engagement metrics, helping optimize influencer marketing strategies through data-driven decision making.",
-    role: "Frontend Developer",
     year: "2024",
-    startYear: "2023",
-    category: "Analytics Platform",
+    startYear: "2024",
     link: "https://www.51digital.com/insight",
+    company: "51 Digital",
+    category: "Digital Marketing",
+    role: "Developer",
     achievements: [
-      "Built an intuitive dashboard for real-time campaign monitoring",
-      "Implemented live tracking features for impressions and engagements",
-      "Created interactive data visualization components",
-      "Developed automated reporting system for daily updates",
-      "Integrated data pooling system for historical campaign analysis",
-      "Built tools for cost impact analysis and ROI tracking",
+      "Developed a comprehensive React-based analytics platform",
+      "Enabled real-time tracking of digital marketing campaigns",
+      "Provided detailed insights into impressions, reach, and engagement metrics",
     ],
     technologies: [
       "React",
@@ -125,22 +126,20 @@ export const works = [
     ],
   },
   {
-    id: 5,
+    id: "5",
     title: "myHyundai Mobile App",
     description:
       "Contributed to the development of Hyundai's official mobile app that redefines vehicle ownership experience. The app enables users to manage their vehicles, schedule service appointments, access vehicle information, and stay connected with their Hyundai vehicles through a comprehensive digital platform.",
-    role: "Software Analyst",
     year: "2023",
-    startYear: "2022",
-    category: "Mobile Application",
+    startYear: "2023",
     link: "https://apps.apple.com/tr/app/myhyundaitürkiye/id6464392167",
+    company: "Hyundai",
+    category: "Mobile App",
+    role: "Contributor",
     achievements: [
-      "Conducted comprehensive user needs analysis",
-      "Developed detailed software requirements specifications",
-      "Collaborated with stakeholders to define project scope",
-      "Designed user-centric features and workflows",
-      "Contributed to project management and timeline planning",
-      "Helped implement vehicle service management features",
+      "Contributed to the development of Hyundai's official mobile app",
+      "Redefined vehicle ownership experience",
+      "Enabled users to manage their vehicles, schedule service appointments, access vehicle information, and stay connected with their Hyundai vehicles through a comprehensive digital platform",
     ],
     technologies: [
       "Software Analysis",
@@ -152,24 +151,20 @@ export const works = [
     ],
   },
   {
-    id: 6,
+    id: "6",
     title: "ebebek Mobile App Revamp",
     description:
       "Led the complete redesign and redevelopment of ebebek's mobile app, Turkey's leading mother and baby products retailer. The revamped app provides a seamless shopping experience with enhanced features for parents, including real-time product tracking, personalized recommendations, and an intuitive user interface.",
-    role: "Project Manager & Software Analyst",
     year: "2022",
-    startYear: "2021",
-    category: "E-Commerce Mobile App",
+    startYear: "2022",
     link: "https://apps.apple.com/tr/app/ebebek-anne-bebek-alışveriş/id563516181",
+    company: "ebebek",
+    category: "Mobile App",
+    role: "Lead Designer",
     achievements: [
-      "Led the complete overhaul of the mobile application",
-      "Managed project timeline and coordinated development team",
-      "Conducted user research and defined key features",
-      "Implemented personalized shopping experience",
-      "Enhanced app performance and user engagement",
-      "Streamlined the product discovery process",
-      "Integrated advanced search and filtering capabilities",
-      "Improved checkout and payment processes",
+      "Led the complete redesign and redevelopment of ebebek's mobile app",
+      "Provided a seamless shopping experience with enhanced features for parents",
+      "Included real-time product tracking, personalized recommendations, and an intuitive user interface",
     ],
     technologies: [
       "Project Management",
