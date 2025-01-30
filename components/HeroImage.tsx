@@ -1,22 +1,23 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 import {
-  TypeScriptIcon,
-  ReactIcon,
+  AWSIcon,
+  ExpoIcon,
+  FirebaseIcon,
+  GraphQLIcon,
+  MongoDBIcon,
   NextJsIcon,
   NodeIcon,
-  TailwindIcon,
-  MongoDBIcon,
-  FirebaseIcon,
-  ReduxIcon,
-  GraphQLIcon,
-  AWSIcon,
   PythonIcon,
-  ExpoIcon,
+  ReactIcon,
+  ReduxIcon,
+  TailwindIcon,
+  TypeScriptIcon,
 } from "./icons/TechIcons";
-import { useTheme } from "next-themes";
 
 interface Tech {
   icon: JSX.Element;
@@ -50,7 +51,7 @@ export const HeroImage = () => {
   }, [theme]);
 
   const getTechIconClass = () => `
-    absolute p-3 rounded-lg 
+    absolute p-3 rounded-lg
     ${mounted ? (isDark ? "bg-gray-800/20 border-gray-700/30" : "bg-white/10 border-gray-200/20") : "bg-white/10 border-gray-200/20"}
     backdrop-blur-md border
     aspect-square w-[48px]
@@ -60,21 +61,14 @@ export const HeroImage = () => {
     <div className="relative w-full h-[500px]">
       <div className="absolute inset-0">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative w-full h-full"
+          initial={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {techStacks.map((tech: Tech, i: number) => (
             <motion.div
               key={`tech-${i}`}
-              className={getTechIconClass()}
-              style={{
-                ...desktopPositions[i],
-                transform: `rotate(${Math.random() * 4 - 2}deg)`,
-                zIndex: zIndexes[i],
-              }}
-              initial={{ y: 50 }}
               animate={{
                 y: [
                   -3 - Math.random() * 4,
@@ -86,6 +80,13 @@ export const HeroImage = () => {
                   2 + Math.random() * 3,
                   -2 - Math.random() * 3,
                 ],
+              }}
+              className={getTechIconClass()}
+              initial={{ y: 50 }}
+              style={{
+                ...desktopPositions[i],
+                transform: `rotate(${Math.random() * 4 - 2}deg)`,
+                zIndex: zIndexes[i],
               }}
               transition={{
                 duration: 4 + Math.random() * 4,
@@ -115,6 +116,7 @@ export const HeroImage = () => {
         { size: "w-[48px]", offset: "-translate-y-1" },
         { size: "w-[48px]", offset: "-translate-y-3" },
       ];
+
       return patterns[index % patterns.length];
     };
 
@@ -122,9 +124,17 @@ export const HeroImage = () => {
       <div className="w-full overflow-hidden py-16">
         <div className="relative">
           <motion.div
-            className="flex gap-4"
             animate={{
               x: [0, `-${techStacks.length * 48}px`],
+            }}
+            className="flex gap-4 will-change-transform"
+            style={{
+              width: "max-content",
+              paddingLeft: "1rem",
+              paddingRight: "1rem",
+              WebkitBackfaceVisibility: "hidden",
+              WebkitPerspective: 1000,
+              WebkitTransform: "translate3d(0,0,0)",
             }}
             transition={{
               duration: 60,
@@ -132,14 +142,10 @@ export const HeroImage = () => {
               ease: "linear",
               repeatType: "loop",
             }}
-            style={{
-              width: "max-content",
-              paddingLeft: "1rem",
-              paddingRight: "1rem",
-            }}
           >
             {[...techStacks, ...techStacks, ...techStacks].map((tech, i) => {
               const { size, offset } = getAsymmetricStyle(i);
+
               return (
                 <motion.div
                   key={`tech-mobile-${i}`}
@@ -147,7 +153,12 @@ export const HeroImage = () => {
                     isDark ? "bg-gray-800/20" : "bg-white/10"
                   } backdrop-blur-md border ${
                     isDark ? "border-gray-700/30" : "border-gray-200/20"
-                  } aspect-square ${size} ${offset}`}
+                  } aspect-square ${size} ${offset} will-change-transform`}
+                  style={{
+                    WebkitBackfaceVisibility: "hidden",
+                    WebkitPerspective: 1000,
+                    WebkitTransform: "translate3d(0,0,0)",
+                  }}
                 >
                   <div className="flex items-center justify-center h-full">
                     {tech.icon}
