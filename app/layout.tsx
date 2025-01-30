@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   },
   description: "Full-stack developer specializing in modern web technologies.",
   metadataBase: new URL("https://alicanbasak.com"),
-  manifest: "/site.webmanifest",
   icons: {
     icon: "/favicon.ico",
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
@@ -60,7 +59,6 @@ export default function RootLayout({
           rel="apple-touch-icon"
           sizes="180x180"
         />
-        <link href="/site.webmanifest" rel="manifest" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=space-grotesk@400,500,700&display=swap"
           rel="stylesheet"
