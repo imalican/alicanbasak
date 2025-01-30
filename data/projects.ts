@@ -1,70 +1,122 @@
-import { FaReact, FaShoppingCart, FaMobile, FaCode, FaDatabase, FaRobot, FaGamepad } from "react-icons/fa";
 import { IconType } from "react-icons";
+import { FaChartPie, FaServer, FaSpotify } from "react-icons/fa";
 
 export interface Project {
+  id: number;
   title: string;
   description: string;
   link: string;
+  github: string;
+  image: string;
   icon: IconType;
   iconColor: string;
+  category: string;
   tags: string[];
+  features: string[];
+  status: string;
+  year: string;
 }
 
 export const projects: Project[] = [
   {
-    title: "Project One",
-    description: "A modern web application built with React and Node.js, featuring real-time updates and responsive design",
-    link: "https://github.com/imalican/project-one",
-    icon: FaReact,
+    id: 1,
+    title: "Express Guardian",
+    description:
+      "A secure and scalable Express.js boilerplate with comprehensive monitoring and security features. Includes JWT authentication, RBAC, rate limiting, performance metrics, and more.",
+    image: "/projects/express-guardian.png",
+    link: "https://github.com/imalican/express-guardian",
+    github: "https://github.com/imalican/express-guardian",
+    icon: FaServer,
     iconColor: "text-violet-500",
-    tags: ["React", "Node.js", "TypeScript"],
-    },
-    {
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce platform with real-time features, cart management, and payment integration",
-    link: "https://github.com/imalican/project-two",
-    icon: FaShoppingCart,
+    category: "Backend Development",
+    tags: [
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Redis",
+      "JWT",
+      "Security",
+      "Monitoring",
+      "Docker",
+      "CI/CD",
+    ],
+    features: [
+      "JWT based authentication with refresh tokens",
+      "Role based authorization (RBAC)",
+      "Rate limiting with Redis",
+      "Helmet security headers",
+      "Request/Response logging",
+      "Performance metrics",
+      "Health check endpoint",
+      "Docker support",
+      "Swagger documentation",
+      "Automated testing",
+    ],
+    status: "Active Development",
+    year: "2024",
+  },
+  {
+    id: 2,
+    title: "Next.js Admin Dashboard",
+    description:
+      "A modern admin dashboard built with Next.js 13+ and Radix UI components, providing a robust and accessible interface for administrative tasks. Features include responsive design, form validation, and TypeScript support.",
+    image: "/projects/next-admin.png",
+    link: "https://next-admin-seven-azure.vercel.app",
+    github: "https://github.com/imalican/next-admin",
+    icon: FaChartPie,
     iconColor: "text-violet-500",
-    tags: ["Next.js", "MongoDB", "Tailwind"],
-    },
-    {
-    title: "Social Dashboard",
-    description: "Mobile-first social media dashboard with analytics and user engagement tracking",
-    link: "https://github.com/imalican/project-three",
-    icon: FaMobile,
+    category: "Frontend Development",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Radix UI",
+      "React Hook Form",
+      "Tailwind CSS",
+      "Accessibility",
+    ],
+    features: [
+      "Modern UI components using Radix UI",
+      "Fully responsive design",
+      "Accessible components out of the box",
+      "Form validation with React Hook Form",
+      "TypeScript support",
+      "App Router implementation",
+      "Dark mode support",
+      "Performance optimized",
+    ],
+    status: "Active Development",
+    year: "2024",
+  },
+  {
+    id: 3,
+    title: "Spotify Cross Playlist Cleaner",
+    description:
+      "A Python application that helps manage Spotify playlists by identifying and removing duplicate tracks across multiple playlists. Features secure authentication, pagination handling, and an intuitive interface for managing duplicates.",
+    image: "/projects/spotify-cleaner.png",
+    link: "https://github.com/imalican/spotify-cross-playlist-cleaner",
+    github: "https://github.com/imalican/spotify-cross-playlist-cleaner",
+    icon: FaSpotify,
     iconColor: "text-violet-500",
-    tags: ["React Native", "Firebase", "Redux"],
-    },
-    {
-    title: "Code Generator AI",
-    description: "AI-powered code generation tool that helps developers write better code faster",
-    link: "https://github.com/imalican/code-gen",
-    icon: FaCode,
-    iconColor: "text-violet-500",
-    tags: ["Python", "TensorFlow", "FastAPI"],
-    },
-    {
-    title: "Data Analytics Platform",
-    description: "Enterprise-grade data analytics platform with interactive visualizations",
-    link: "https://github.com/imalican/data-analytics",
-    icon: FaDatabase,
-    iconColor: "text-violet-500",
-    tags: ["Vue.js", "D3.js", "PostgreSQL"],
-    },
-    {
-    title: "AI Chat Assistant",
-    description: "Intelligent chatbot platform with natural language processing capabilities",
-    link: "https://github.com/imalican/chat-assistant",
-    icon: FaRobot,
-    iconColor: "text-violet-500",
-    tags: ["Python", "NLP", "Machine Learning"],
-    },
-    {
-    title: "Game Development Kit",
-    description: "A comprehensive toolkit for building 2D games with modern web technologies",
-    link: "https://github.com/imalican/game-dev-kit",
-    icon: FaGamepad,
-    iconColor: "text-violet-500",
-    tags: ["JavaScript", "WebGL", "Canvas"],
+    category: "Automation Tool",
+    tags: [
+      "Python",
+      "Spotify API",
+      "OAuth2",
+      "CLI",
+      "Automation",
+      "Data Management",
+    ],
+    features: [
+      "Lists all Spotify playlists",
+      "Finds duplicate tracks across playlists",
+      "Selective duplicate management",
+      "Handles large playlist pagination",
+      "Secure OAuth authentication",
+      "Environment-based configuration",
+      "Cross-platform compatibility",
+      "User-friendly CLI interface",
+    ],
+    status: "Active Development",
+    year: "2024",
   },
 ];

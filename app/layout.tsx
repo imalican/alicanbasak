@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
+import clsx from "clsx";
 import { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
+
 import { Providers } from "./providers";
-import clsx from "clsx";
 
 const Header = dynamic(() => import("@/components/layout/Header"), {
   ssr: true,
@@ -44,12 +45,14 @@ export default function RootLayout({
         className={clsx("min-h-screen bg-background antialiased font-satoshi")}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col min-h-screen">
             <Header />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <Footer />
+            <footer className="w-full mt-24">
+              <Footer />
+            </footer>
           </div>
         </Providers>
       </body>
