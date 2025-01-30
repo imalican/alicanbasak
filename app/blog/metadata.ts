@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog | Alican Başak - Full Stack Developer",
   description:
-    "Technical articles, tutorials, and insights about software development, web technologies, and best practices.",
+    "Articles and insights about web development, software engineering, and tech. Sharing my experiences and knowledge in full-stack development.",
   openGraph: {
-    title: "Blog | Alican Basak",
+    title: "Blog | Alican Başak - Full Stack Developer",
     description:
-      "Technical articles, tutorials, and insights about software development, web technologies, and best practices.",
-    url: "https://alicanbasak.dev/blog",
+      "Articles and insights about web development, software engineering, and tech. Sharing my experiences and knowledge in full-stack development.",
+    url: "https://alicanbasak.com/blog",
     siteName: "Alican Basak",
     locale: "en_US",
     type: "website",

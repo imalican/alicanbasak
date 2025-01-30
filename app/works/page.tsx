@@ -10,7 +10,7 @@ export default function WorksPage() {
   const [filter, setFilter] = useState<string>("all");
 
   // Benzersiz yılları al ve "all" seçeneğini ekle
-  const years = ["all", ...new Set(works.map((work) => work.year))]
+  const years = ["all", ...Array.from(new Set(works.map((work) => work.year)))]
     .sort()
     .reverse();
 
