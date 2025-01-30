@@ -55,6 +55,7 @@ export const HeroImage = () => {
     ${mounted ? (isDark ? "bg-gray-800/20 border-gray-700/30" : "bg-white/10 border-gray-200/20") : "bg-white/10 border-gray-200/20"}
     backdrop-blur-md border
     aspect-square w-[48px]
+    transform-gpu
   `;
 
   const DesktopView = () => (
