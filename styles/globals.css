@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    /* Her zaman scrollbar göster */
+    overflow-y: scroll;
+    /* Modern scrollbar stilleri */
+    scrollbar-gutter: stable;
+  }
+
+  /* Scrollbar stilleri */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(139 92 246 / 0.2);
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(139 92 246 / 0.3);
+  }
+
+  /* Dark mode için */
+  @media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-thumb {
+      background: rgb(139 92 246 / 0.3);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(139 92 246 / 0.4);
+    }
+  }
+}
