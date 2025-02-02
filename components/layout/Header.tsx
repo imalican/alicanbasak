@@ -158,7 +158,8 @@ export default function Header() {
               <NavbarMenuItem className="h-14 flex items-center">
                 <NavLink
                   className="text-2xl"
-                  href="/blog"
+                  href="https://medium.com/@alicanbasak"
+                  target="_blank"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Blog
