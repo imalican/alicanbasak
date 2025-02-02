@@ -1,40 +1,42 @@
 "use client";
 
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
-  NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
-} from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
+import {
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Navbar as NextUINavbar,
+} from "@nextui-org/navbar";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { SubscribeModal } from "@/components/SubscribeModal";
 import { useState } from "react";
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+
+import { SubscribeModal } from "@/components/SubscribeModal";
+import { ThemeSwitch } from "@/components/theme-switch";
 
 const NavLink = ({
   href,
   children,
   className,
   onClick,
+  target,
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  target?: string;
 }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
   return (
     <NextLink
-      href={href}
       className={`
         relative font-medium text-lg text-black dark:text-white no-underline
         after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left
@@ -45,6 +47,8 @@ const NavLink = ({
         }
         ${className}
       `}
+      href={href}
+      target={target}
       onClick={onClick}
     >
       {children}
@@ -54,7 +58,6 @@ const NavLink = ({
 
 const SocialIcon = ({ href, icon: Icon }: { href: string; icon: any }) => (
   <Link
-    href={href}
     className="
       p-2 rounded-lg
       bg-violet-50 hover:bg-violet-100 dark:bg-violet-900/20 dark:hover:bg-violet-900/30
@@ -63,6 +66,7 @@ const SocialIcon = ({ href, icon: Icon }: { href: string; icon: any }) => (
       transition-colors
       flex items-center justify-center
     "
+    href={href}
     target="_blank"
   >
     <Icon size={20} />
@@ -76,10 +80,10 @@ export default function Header() {
   return (
     <>
       <NextUINavbar
-        maxWidth="xl"
         className="bg-background/70 backdrop-blur-md"
-        position="sticky"
         isMenuOpen={isMenuOpen}
+        maxWidth="xl"
+        position="sticky"
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent>
@@ -91,8 +95,8 @@ export default function Header() {
           />
           <NavbarBrand>
             <NextLink
-              href="/"
               className="text-3xl tracking-tight font-cabinet font-bold"
+              href="/"
             >
               alican.
             </NextLink>
@@ -104,7 +108,9 @@ export default function Header() {
             <NavLink href="/">Home</NavLink>
           </NavbarItem>
           <NavbarItem>
-            <NavLink href="/blog">Blog</NavLink>
+            <NavLink href="https://medium.com/@alicanbasak" target="_blank">
+              Blog
+            </NavLink>
           </NavbarItem>
           <NavbarItem>
             <NavLink href="/works">Works</NavLink>
@@ -114,19 +120,19 @@ export default function Header() {
           </NavbarItem>
         </NavbarContent>
 
-        <NavbarContent justify="end" className="gap-4">
+        <NavbarContent className="gap-4" justify="end">
           <NavbarItem className="sm:flex">
             <Button
               className="
-                bg-violet-100 hover:bg-violet-200 dark:bg-violet-900/30 dark:hover:bg-violet-900/50 
-                [&:not(:hover)]:bg-violet-50 dark:[&:not(:hover)]:bg-violet-900/20 
-                !text-violet-600 dark:!text-violet-300 
-                transition-colors 
+                bg-violet-100 hover:bg-violet-200 dark:bg-violet-900/30 dark:hover:bg-violet-900/50
+                [&:not(:hover)]:bg-violet-50 dark:[&:not(:hover)]:bg-violet-900/20
+                !text-violet-600 dark:!text-violet-300
+                transition-colors
                 font-bold
                 h-unit-10 min-w-unit-20 px-4
               "
-              onClick={() => setIsSubscribeOpen(true)}
               variant="flat"
+              onClick={() => setIsSubscribeOpen(true)}
             >
               <FaEnvelope className="mr-2" size={18} />
               Subscribe
@@ -142,8 +148,8 @@ export default function Header() {
             <nav className="flex flex-col items-center space-y-10">
               <NavbarMenuItem className="h-14 flex items-center">
                 <NavLink
-                  href="/"
                   className="text-2xl"
+                  href="/"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
@@ -151,8 +157,8 @@ export default function Header() {
               </NavbarMenuItem>
               <NavbarMenuItem className="h-14 flex items-center">
                 <NavLink
-                  href="/blog"
                   className="text-2xl"
+                  href="/blog"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Blog
@@ -160,8 +166,8 @@ export default function Header() {
               </NavbarMenuItem>
               <NavbarMenuItem className="h-14 flex items-center">
                 <NavLink
-                  href="/works"
                   className="text-2xl"
+                  href="/works"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Works
@@ -169,8 +175,8 @@ export default function Header() {
               </NavbarMenuItem>
               <NavbarMenuItem className="h-14 flex items-center">
                 <NavLink
-                  href="/projects"
                   className="text-2xl"
+                  href="/projects"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Projects
@@ -195,9 +201,9 @@ export default function Header() {
       </NextUINavbar>
 
       <SubscribeModal
+        className="sm:mx-auto sm:max-w-md mx-4"
         isOpen={isSubscribeOpen}
         onClose={() => setIsSubscribeOpen(false)}
-        className="sm:mx-auto sm:max-w-md mx-4"
       />
     </>
   );
