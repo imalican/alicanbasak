@@ -22,7 +22,7 @@ export const works: Work[] = [
     startYear: "2025",
     link: "https://omega.themegamerchant.com",
     company: "MegaMerchant",
-    category: "Full Stack Development",
+    category: "E-Export Infrastructure",
     role: "Full Stack Developer",
     achievements: [
       "Built the entire React frontend from scratch",
