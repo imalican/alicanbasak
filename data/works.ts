@@ -23,7 +23,7 @@ export const works: Work[] = [
     link: "https://omega.themegamerchant.com",
     company: "MegaMerchant",
     category: "Full Stack Development",
-    role: "Lead Frontend Developer",
+    role: "Full Stack Developer",
     achievements: [
       "Built the entire React frontend from scratch",
       "Implemented complex UI components",
@@ -52,7 +52,7 @@ export const works: Work[] = [
     link: "https://odakpcb.com",
     company: "Odak PCB",
     category: "Quality Control",
-    role: "Developer",
+    role: "Full Stack Developer",
     achievements: [
       "Developed a sophisticated quality control testing platform",
       "Managed 33 different test processes for PCB cards",
@@ -81,7 +81,7 @@ export const works: Work[] = [
     link: "https://odakpcb.com",
     company: "Odak PCB",
     category: "RFQ Platform",
-    role: "Developer",
+    role: "Full Stack Developer",
     achievements: [
       "Developed a comprehensive RFQ platform",
       "Streamlined the quotation process",
@@ -109,7 +109,7 @@ export const works: Work[] = [
     link: "https://www.51digital.com/insight",
     company: "51 Digital",
     category: "Digital Marketing",
-    role: "Developer",
+    role: "Frontend Developer",
     achievements: [
       "Developed a comprehensive React-based analytics platform",
       "Enabled real-time tracking of digital marketing campaigns",
@@ -135,7 +135,7 @@ export const works: Work[] = [
     link: "https://apps.apple.com/tr/app/myhyundaitürkiye/id6464392167",
     company: "Hyundai",
     category: "Mobile App",
-    role: "Contributor",
+    role: "Project Manager",
     achievements: [
       "Contributed to the development of Hyundai's official mobile app",
       "Redefined vehicle ownership experience",
@@ -160,7 +160,7 @@ export const works: Work[] = [
     link: "https://apps.apple.com/tr/app/ebebek-anne-bebek-alışveriş/id563516181",
     company: "ebebek",
     category: "Mobile App",
-    role: "Lead Designer",
+    role: "Project Manager",
     achievements: [
       "Led the complete redesign and redevelopment of ebebek's mobile app",
       "Provided a seamless shopping experience with enhanced features for parents",
